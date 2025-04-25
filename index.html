@@ -1,60 +1,68 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Bajtai Miklós - Büntetőjogász</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Bajtai Miklós | Büntetőjog</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script> <!-- Animáció könyvtár -->
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Dr. Bajtai Miklós</h1>
-      <p>Büntetőjogi védőügyvéd</p>
-      <nav>
-        <ul>
-          <li><a href="#bemutatkozas">Rólam</a></li>
-          <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
-          <li><a href="#kapcsolat">Kapcsolat</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <header>
+        <div class="container">
+            <h1>Dr. Bajtai Miklós</h1>
+            <nav>
+                <ul>
+                    <li><a href="#rolam">Rólam</a></li>
+                    <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
+                    <li><a href="#kapcsolat">Kapcsolat</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main>
-    <section id="bemutatkozas" class="section">
-      <div class="container">
-        <h2>Bemutatkozás</h2>
-        <p>Több mint x éve foglalkozom ügyvédkedéssel.</p>
-      </div>
+    <section id="hero">
+        <div class="container">
+            <h2>Büntetőjogi védelem szakértőtől</h2>
+            <p>Megbízható képviselet büntetőeljárásokban, a jog minden területén.</p>
+            <a href="#kapcsolat" class="btn">Kapcsolatfelvétel</a>
+        </div>
     </section>
 
-    <section id="szolgaltatasok" class="section">
-      <div class="container">
+    <section id="rolam" class="container">
+        <h2>Rólam</h2>
+        <p>Tapasztalt büntetőjogi ügyvédként segítem ügyfeleimet a legnehezebb jogi helyzetekben is.</p>
+    </section>
+
+    <section id="szolgaltatasok" class="container">
         <h2>Szolgáltatások</h2>
-        <ul>
-          <li>Büntetőeljárásban való védelem</li>
-          <li>Előzetes letartóztatás esetén képviselet</li>
-          <li>Büntető feljelentés elkészítése</li>
+        <ul class="services">
+            <li>Büntetőeljárás védői képviselete</li>
+            <li>Gazdasági bűncselekmények</li>
+            <li>Kábítószerrel kapcsolatos ügyek</li>
+            <li>Közlekedési bűncselekmények</li>
+            <li>Sértetti képviselet</li>
         </ul>
-      </div>
     </section>
 
-    <section id="kapcsolat" class="section">
-      <div class="container">
+    <section id="kapcsolat" class="container">
         <h2>Kapcsolat</h2>
-        <p>📍 Budapest, Magyarország<br>
-        📞 +36 30 971 5847<br>
-        📧 bajtaiiroda@gmail.com</p>
-      </div>
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Név" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <textarea id="message" name="message" placeholder="Üzenet" required></textarea>
+            <button type="submit" class="btn">Üzenet küldése</button>
+        </form>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Dr. Bajtai Miklós - Minden jog fenntartva.</p>
-    </div>
-  </footer>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dr. Bajtai Miklós | Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
 
