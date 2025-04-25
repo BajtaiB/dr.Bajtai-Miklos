@@ -17,7 +17,8 @@ body {
 
 /* Fejléc */
 header {
-    background: #0a2c5d;
+/* szín söt */
+    background: #2D3A2E;
     color: #fff;
     padding: 20px 0;
 }
@@ -40,7 +41,8 @@ nav a {
 
 /* Hős szekció */
 #hero {
-    background: #e0e7ff;
+/* szín vil*/
+    background: #CDE3C1;
     text-align: center;
     padding: 100px 20px;
 }
@@ -55,7 +57,8 @@ nav a {
 }
 
 .btn {
-    background: #0a2c5d;
+/* szín söt2 */
+    background: #3F5243;
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;
@@ -66,7 +69,8 @@ nav a {
 }
 
 .btn:hover {
-    background: #094190;
+/* szín élénk */
+    background: #5F8D4E;
 }
 
 /* Szolgáltatások */
@@ -93,7 +97,7 @@ form input, form textarea {
 }
 
 form button {
-    background: #0a2c5d;
+    background: #2D3A2E;
     color: white;
     border: none;
     padding: 10px;
@@ -103,7 +107,7 @@ form button {
 
 /* Lábléc */
 footer {
-    background: #0a2c5d;
+    background: #2D3A2E;
     color: white;
     text-align: center;
     padding: 10px 0;
