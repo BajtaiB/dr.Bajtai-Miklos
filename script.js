@@ -7,13 +7,13 @@ ScrollReveal().reveal('#kapcsolat', { delay: 600, origin: 'bottom', distance: '5
 
 // Email küldés (emailjs használata)
 (function() {
-    emailjs.init(nHJ_29EAVqqSMMbo9); // <- ezt majd cseréld ki a saját kulcsodra
+    emailjs.init(nHJ_29EAVqqSMMbo9); 
 })();
 
 document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    emailjs.sendForm(service_ghxn6gd,template_yz3uorc, this)
+    emailjs.sendForm(service_ghxn6gd,template_49pab4a, this)
         .then(function() {
             alert('Az üzenet sikeresen elküldve!');
             document.getElementById('contact-form').reset();
