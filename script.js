@@ -13,7 +13,7 @@ ScrollReveal().reveal('#kapcsolat', { delay: 600, origin: 'bottom', distance: '5
 document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    emailjs.sendForm(service_ghxn6gd,template_49pab4a, this)
+    emailjs.sendForm(ghxn6gd,49pab4a, this)
         .then(function() {
             alert('Az üzenet sikeresen elküldve!');
             document.getElementById('contact-form').reset();
