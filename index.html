@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Bajtai Miklós | Büntetőjog</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script> <!-- Animáció könyvtár -->
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
 </head>
 <body>
     <header>
@@ -45,15 +45,19 @@
         </ul>
     </section>
 
-</section><section id="kapcsolat" class="container">
-    <h2>Kapcsolat</h2>
-    <form action="https://formsubmit.co/drbajtaiiroda@gmail.com" method="POST">
-        <input type="text" name="from_name" placeholder="Név" required>
-        <input type="email" name="from_email" placeholder="Email" required>
-        <textarea name="message" id="message" placeholder="Üzenet" required></textarea>
-        <button type="submit">Üzenet elküldve!</button>
-    </form>
-</section>
+    <section id="kapcsolat" class="container">
+        <h2>Kapcsolat</h2>
+        <form action="https://formsubmit.co/drbajtaiiroda@gmail.com" method="POST">
+            <input type="text" name="from_name" placeholder="Név" required>
+            <input type="email" name="from_email" placeholder="Email" required>
+            <textarea name="message" id="message" placeholder="Üzenet" required></textarea>
+            <button type="submit">Küldés</button>
+
+            <!-- Rejtett mezők -->
+            <input type="hidden" name="_next" value="https://bajtaib.github.io/dr.Bajtai-Miklos/koszonjuk.html">
+            <input type="hidden" name="_captcha" value="false">
+        </form>
+    </section>
 
     <footer>
         <div class="container">
@@ -64,5 +68,4 @@
     <script src="script.js"></script>
 </body>
 </html>
-
 
