@@ -1,125 +1,64 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Bajtai Miklós | Büntetőjog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+    <title>Vertigo & Partners | Büntetőjogi Ügyvédek</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    sans: ['Montserrat', 'sans-serif'],
+                    serif: ['Cormorant Garamond', 'serif'],
+                },
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f3f7f0',
+                            100: '#e0eadb',
+                            200: '#c5d7be',
+                            300: '#9fc097',
+                            400: '#77a76c',
+                            500: '#5b8e50',  // Main green
+                            600: '#45733b',
+                            700: '#365a2f',
+                            800: '#2d4627',
+                            900: '#233720',
+                        }
+                    },
+                    transitionProperty: {
+                        'size': 'width, height',
+                        'spacing': 'margin, padding',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Alap stílusok és betűk */
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #2D3A2E;
-            background: #f9f9f9;
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+        
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
+        .sidebar.open {
+            transform: translateX(0);
         }
-
-        header {
-            background: #2D3A2E;
-            color: #fff;
-            padding: 20px 0;
+        .overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.4s ease-in-out;
         }
-
-        header h1 {
-            margin: 0;
+        .overlay.open {
+            opacity: 1;
+            visibility: visible;
         }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            gap: 15px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        #hero {
-            background: #CDE3C1;
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        #hero h2 {
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
-
-        #hero p {
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            background: #3F5243;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .btn:hover {
-            background: #5F8D4E;
-        }
-
-        .services {
-            list-style: none;
-            padding: 0;
-        }
-
-        .services li {
-            margin: 10px 0;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        form input, form textarea {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        form button {
-            background: #2D3A2E;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        footer {
-            background: #2D3A2E;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 40px;
-        }
-
-        /* Animációk és extra stílusok */
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
         }
-
         .nav-link::after {
             content: '';
             position: absolute;
@@ -130,82 +69,466 @@
             background-color: #5b8e50;
             transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
-
         .nav-link:hover::after {
             width: 100%;
         }
-
+        .firm-name {
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .collapsed {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Dr. Bajtai Miklós</h1>
-            <nav>
-                <ul>
-                    <li><a href="#rolam" class="nav-link">Rólam</a></li>
-                    <li><a href="#szolgaltatasok" class="nav-link">Szolgáltatások</a></li>
-                    <li><a href="#kapcsolat" class="nav-link">Kapcsolat</a></li>
+<body class="bg-primary-50 min-h-screen font-serif">
+    <!-- Sidebar Navigation -->
+    <div class="fixed inset-0 z-40">
+        <!-- Overlay -->
+        <div class="overlay fixed inset-0 bg-black bg-opacity-50 z-40" onclick="toggleSidebar()"></div>
+        
+        <!-- Sidebar -->
+        <div class="sidebar fixed top-0 left-0 w-64 h-full bg-primary-900 text-white z-50 shadow-2xl">
+            <div class="p-4 flex items-center justify-between border-b border-primary-700">
+                <h2 class="text-2xl font-bold text-secondary-500">Menu</h2>
+                <button onclick="toggleSidebar()" class="text-white hover:text-secondary-500 focus:outline-none">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <nav class="p-4">
+                <ul class="space-y-4">
+                    <li><a href="#home" class="nav-link text-lg block text-white hover:text-secondary-500" onclick="toggleSidebar()">Home</a></li>
+                    <li><a href="#services" class="nav-link text-lg block text-white hover:text-secondary-500" onclick="toggleSidebar()">Our Services</a></li>
+                    <li><a href="#criminal-laws" class="nav-link text-lg block text-white hover:text-secondary-500" onclick="toggleSidebar()">Criminal Laws</a></li>
+                    <li><a href="#about" class="nav-link text-lg block text-white hover:text-secondary-500" onclick="toggleSidebar()">About Us</a></li>
+                    <li><a href="#contact" class="nav-link text-lg block text-white hover:text-secondary-500" onclick="toggleSidebar()">Contact</a></li>
                 </ul>
             </nav>
+            <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-primary-700">
+                <div class="text-center text-primary-300 text-sm">
+                    <p>&copy; 2023 Vertigo & Partners</p>
+                    <p>All rights reserved</p>
+                </div>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <section id="hero">
-        <div class="container">
-            <h2>Büntetőjogi védelem szakértőtől</h2>
-            <p>Megbízható képviselet büntetőeljárásokban, a jog minden területén.</p>
-            <a href="#kapcsolat" class="btn">Kapcsolatfelvétel</a>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <div class="relative">
+        <!-- Header -->
+        <header class="bg-white shadow-md sticky top-0 z-30">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleSidebar()" class="text-primary-700 hover:text-secondary-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <div>
+                        <h1 class="text-2xl font-bold text-primary-800 cursor-pointer" onclick="toggleFirmName()">
+                            Vertigo & Partners
+                        </h1>
+                        <p id="firmSlogan" class="text-sm text-primary-600 transition-all duration-300">Defending Justice With Integrity</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#home" class="nav-link text-primary-700 hover:text-secondary-600">Home</a>
+                    <a href="#services" class="nav-link text-primary-700 hover:text-secondary-600">Services</a>
+                    <a href="#criminal-laws" class="nav-link text-primary-700 hover:text-secondary-600">Laws</a>
+                    <a href="#contact" class="nav-link text-primary-700 hover:text-secondary-600">Contact</a>
+                    <a href="#contact" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded transition duration-300">
+                        Free Consultation
+                    </a>
+                </div>
+            </div>
+        </header>
 
-    <section id="rolam" class="container">
-        <h2>Rólam</h2>
-        <p>Tapasztalt büntetőjogi ügyvédként segítem ügyfeleimet a legnehezebb jogi helyzetekben is.</p>
-    </section>
+        <!-- Hero Section -->
+        <section id="home" class="relative bg-gradient-to-r from-primary-100 to-primary-200 py-20 md:py-28">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-900 mb-6">
+                    <span class="text-secondary-500">Kiváló</span> Büntetőjogi Szakértelmünk
+                </h1>
+                <p class="text-xl md:text-2xl text-primary-800 max-w-3xl mx-auto mb-10">
+                    Több mint 25 éves jogi tapasztalattal védjük jogaidat. 
+                    Született jogvédőként harcolunk igazságosságért és méltányos bánásmódért.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contact" class="bg-primary-500 hover:bg-primary-600 text-white font-bold px-8 py-3 rounded-lg transition duration-300 transform hover:scale-105">
+                        Véglegesítsd Ma
+                    </a>
+                    <a href="tel:+18005551234" class="bg-white hover:bg-primary-100 text-primary-800 border border-primary-300 font-bold px-8 py-3 rounded-lg transition duration-300 transform hover:scale-105">
+                        <i class="fas fa-phone mr-2"></i> (800) 555-1234
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <section id="szolgaltatasok" class="container">
-        <h2>Szolgáltatások</h2>
-        <ul class="services">
-            <li>Büntetőeljárás védői képviselete</li>
-            <li>Gazdasági bűncselekmények</li>
-            <li>Kábítószerrel kapcsolatos ügyek</li>
-            <li>Közlekedési bűncselekmények</li>
-            <li>Sértetti képviselet</li>
-        </ul>
-    </section>
+        <!-- Services Section -->
+        <section id="services" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-800 mb-4">Our Legal Services</h2>
+                    <div class="w-24 h-1 bg-primary-500 mx-auto"></div>
+                    <p class="text-primary-700 mt-6 max-w-2xl mx-auto">
+                        Comprehensive criminal defense services tailored to protect your rights and achieve the best possible outcome.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="bg-primary-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                        <div class="h-48 bg-primary-600 flex items-center justify-center text-white">
+                            <i class="fas fa-gavel text-6xl text-secondary-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-primary-800 mb-3">Felony Defense</h3>
+                            <p class="text-primary-700">
+                                Aggressive representation for serious felony charges including drug crimes, violent crimes, and white-collar offenses.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="bg-primary-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                        <div class="h-48 bg-primary-600 flex items-center justify-center text-white">
+                            <i class="fas fa-user-tie text-6xl text-secondary-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-primary-800 mb-3">DUI/DWI Defense</h3>
+                            <p class="text-primary-700">
+                                Strategic defense for drunk driving charges to minimize penalties and protect your driving privileges.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="bg-primary-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                        <div class="h-48 bg-primary-600 flex items-center justify-center text-white">
+                            <i class="fas fa-handcuffs text-6xl text-secondary-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-primary-800 mb-3">Domestic Violence</h3>
+                            <p class="text-primary-700">
+                                Compassionate yet firm representation in sensitive domestic violence cases to protect your future.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="bg-primary-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                        <div class="h-48 bg-primary-600 flex items-center justify-center text-white">
+                            <i class="fas fa-balance-scale text-6xl text-secondary-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-primary-800 mb-3">Appeals</h3>
+                            <p class="text-primary-700">
+                                Skilled appellate representation to challenge wrongful convictions or excessive sentences.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 5 -->
+                    <div class="bg-primary-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                        <div class="h-48 bg-primary-600 flex items-center justify-center text-white">
+                            <i class="fas fa-building text-6xl text-secondary-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-primary-800 mb-3">White Collar Crimes</h3>
+                            <p class="text-primary-700">
+                                Specialized defense for fraud, embezzlement, and other complex financial crimes.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 6 -->
+                    <div class="bg-primary-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                        <div class="h-48 bg-primary-600 flex items-center justify-center text-white">
+                            <i class="fas fa-shield-alt text-6xl text-secondary-500"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-primary-800 mb-3">Juvenile Defense</h3>
+                            <p class="text-primary-700">
+                                Protecting young clients with tailored strategies that focus on rehabilitation and future opportunities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="kapcsolat" class="container">
-        <h2>Kapcsolat</h2>
-        <form action="https://formsubmit.co/drbajtaiiroda@gmail.com" method="POST">
-            <input type="text" name="from_name" placeholder="Név" required>
-            <input type="email" name="from_email" placeholder="Email" required>
-            <input type="tel" name="phone" placeholder="Telefonszám" required>
-            <textarea name="message" id="message" placeholder="Üzenet" required></textarea>
-            <input type="text" name="_honey" style="display:none">
-            <button type="submit">Küldés</button>
+        <!-- Criminal Laws Section -->
+        <section id="criminal-laws" class="py-16 bg-primary-100">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-800 mb-4">Understanding Criminal Laws</h2>
+                    <div class="w-24 h-1 bg-secondary-500 mx-auto"></div>
+                    <p class="text-primary-700 mt-6 max-w-2xl mx-auto">
+                        Knowledge is power. Understand the laws that may affect your case with our comprehensive guide.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-10">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-primary-800 mb-4">Common Criminal Offenses</h3>
+                        <div class="space-y-4">
+                            <!-- Law 1 -->
+                            <div class="border-l-4 border-secondary-500 pl-4 py-1">
+                                <h4 class="text-lg font-semibold text-primary-800">Assault and Battery</h4>
+                                <p class="text-primary-700">
+                                    Defined as intentionally causing harmful or offensive contact with another person, or the threat to do so. Penalties vary by severity and circumstances.
+                                </p>
+                            </div>
+                            
+                            <!-- Law 2 -->
+                            <div class="border-l-4 border-secondary-500 pl-4 py-1">
+                                <h4 class="text-lg font-semibold text-primary-800">Drug Possession</h4>
+                                <p class="text-primary-700">
+                                    Controlled Substances Act regulates possession of drugs classified by schedule. Penalties depend on type, amount, and prior offenses.
+                                </p>
+                            </div>
+                            
+                            <!-- Law 3 -->
+                            <div class="border-l-4 border-secondary-500 pl-4 py-1">
+                                <h4 class="text-lg font-semibold text-primary-800">Theft and Larceny</h4>
+                                <p class="text-primary-700">
+                                    Unlawful taking of someone else's property with intent to permanently deprive them of it. Values determine whether charged as misdemeanor or felony.
+                                </p>
+                            </div>
+                            
+                            <!-- Law 4 -->
+                            <div class="border-l-4 border-secondary-500 pl-4 py-1">
+                                <h4 class="text-lg font-semibold text-primary-800">Fraud</h4>
+                                <p class="text-primary-700">
+                                    Intentional deception for unlawful gain, including identity theft, credit card fraud, insurance fraud, and more.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-primary-800 mb-4">The Criminal Process</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-primary-50 p-5 rounded-lg">
+                                <h4 class="text-lg font-semibold text-primary-800 mb-2">1. Arrest and Booking</h4>
+                                <p class="text-primary-700">
+                                    After arrest, the defendant is processed at the police station. This includes fingerprinting, photographing, and recording personal information.
+                                </p>
+                            </div>
+                            <div class="bg-primary-50 p-5 rounded-lg">
+                                <h4 class="text-lg font-semibold text-primary-800 mb-2">2. Bail Hearing</h4>
+                                <p class="text-primary-700">
+                                    A judge determines if the defendant can be released on bail and sets the amount based on flight risk and danger to community.
+                                </p>
+                            </div>
+                            <div class="bg-primary-50 p-5 rounded-lg">
+                                <h4 class="text-lg font-semibold text-primary-800 mb-2">3. Arraignment</h4>
+                                <p class="text-primary-700">
+                                    Defendant appears before judge to hear charges and enter a plea (guilty, not guilty, or no contest).
+                                </p>
+                            </div>
+                            <div class="bg-primary-50 p-5 rounded-lg">
+                                <h4 class="text-lg font-semibold text-primary-800 mb-2">4. Pre-Trial Motions</h4>
+                                <p class="text-primary-700">
+                                    Attorneys may file motions to suppress evidence or dismiss charges based on legal arguments.
+                                </p>
+                            </div>
+                            <div class="bg-primary-50 p-5 rounded-lg">
+                                <h4 class="text-lg font-semibold text-primary-800 mb-2">5. Trial</h4>
+                                <p class="text-primary-700">
+                                    The prosecution must prove guilt beyond reasonable doubt. Defendant may choose jury or bench trial.
+                                </p>
+                            </div>
+                            <div class="bg-primary-50 p-5 rounded-lg">
+                                <h4 class="text-lg font-semibold text-primary-800 mb-2">6. Sentencing</h4>
+                                <p class="text-primary-700">
+                                    If convicted, judge determines sentence based on guidelines, nature of crime, and defendant's history.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <!-- Rejtett mezők -->
-            <input type="hidden" name="_next" value="https://bajtaib.github.io/dr.Bajtai-Miklos/koszonjuk.html">
-            <input type="hidden" name="_captcha" value="false">
-        </form>
-    </section>
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-800 mb-4">Contact Us</h2>
+                    <div class="w-24 h-1 bg-secondary-500 mx-auto"></div>
+                    <p class="text-primary-700 mt-6 max-w-2xl mx-auto">
+                        Reach out today for a confidential consultation. We're available 24/7 for emergencies.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-primary-50 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary-800 mb-6">Get In Touch</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-primary-700 mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-primary-300 rounded focus:outline-none focus:ring-2 focus:ring-secondary-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-primary-700 mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-primary-300 rounded focus:outline-none focus:ring-2 focus:ring-secondary-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-primary-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-primary-300 rounded focus:outline-none focus:ring-2 focus:ring-secondary-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="case" class="block text-primary-700 mb-2">Nature of Your Case</label>
+                                <select id="case" class="w-full px-4 py-2 border border-primary-300 rounded focus:outline-none focus:ring-2 focus:ring-secondary-500">
+                                    <option>Select One</option>
+                                    <option>DUI/DWI</option>
+                                    <option>Drug Charges</option>
+                                    <option>Theft/Burglary</option>
+                                    <option>Assault/Violence</option>
+                                    <option>Domestic Violence</option>
+                                    <option>White Collar Crime</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-primary-700 mb-2">Your Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-primary-300 rounded focus:outline-none focus:ring-2 focus:ring-secondary-500"></textarea>
+                            </div>
+                            <button type="submit" class="bg-secondary-500 hover:bg-secondary-600 text-white font-bold px-6 py-3 rounded transition duration-300 w-full">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-primary-700 text-white p-8 rounded-lg shadow-lg h-full">
+                            <h3 class="text-2xl font-bold text-secondary-500 mb-6">Visit Our Office</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <i class="fas fa-map-marker-alt text-secondary-500 mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="text-lg font-semibold">Main Office</h4>
+                                        <p class="text-primary-100">123 Justice Avenue<br>New York, NY 10001</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <i class="fas fa-clock text-secondary-500 mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="text-lg font-semibold">Hours</h4>
+                                        <p class="text-primary-100">Monday-Friday: 9am-6pm<br>Saturday: By Appointment<br>Emergency: 24/7 Availability</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <i class="fas fa-phone text-secondary-500 mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="text-lg font-semibold">Phone</h4>
+                                        <p class="text-primary-100">Main: (212) 555-0100<br>Emergency: (212) 555-0199<br>Fax: (212) 555-0101</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <i class="fas fa-envelope text-secondary-500 mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="text-lg font-semibold">Email</h4>
+                                        <p class="text-primary-100">info@vertigolaw.com<br>emergency@vertigolaw.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="text-white hover:text-primary-400 text-xl"><i class="fab fa-facebook-square"></i></a>
+                                    <a href="#" class="text-white hover:text-primary-400 text-xl"><i class="fab fa-twitter-square"></i></a>
+                                    <a href="#" class="text-white hover:text-primary-400 text-xl"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="text-white hover:text-primary-400 text-xl"><i class="fab fa-instagram-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Dr. Bajtai Miklós | Minden jog fenntartva.</p>
-        </div>
-    </footer>
+        <!-- Footer -->
+        <footer class="bg-primary-900 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-secondary-500 mb-4">Vertigo & Partners</h3>
+                        <p class="text-primary-200">
+                            A premier criminal defense firm dedicated to protecting your rights with aggressive, strategic legal representation.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-primary-200 hover:text-secondary-500">Home</a></li>
+                            <li><a href="#services" class="text-primary-200 hover:text-secondary-500">Services</a></li>
+                            <li><a href="#criminal-laws" class="text-primary-200 hover:text-secondary-500">Criminal Laws</a></li>
+                            <li><a href="#about" class="text-primary-200 hover:text-secondary-500">About Us</a></li>
+                            <li><a href="#contact" class="text-primary-200 hover:text-secondary-500">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-4">Practice Areas</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-primary-200 hover:text-secondary-500">Felony Defense</a></li>
+                            <li><a href="#" class="text-primary-200 hover:text-secondary-500">DUI/DWI</a></li>
+                            <li><a href="#" class="text-primary-200 hover:text-secondary-500">Domestic Violence</a></li>
+                            <li><a href="#" class="text-primary-200 hover:text-secondary-500">Drug Crimes</a></li>
+                            <li><a href="#" class="text-primary-200 hover:text-secondary-500">White Collar Crimes</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-4">Newsletter</h4>
+                        <p class="text-primary-200 mb-4">
+                            Subscribe to our newsletter for legal updates and firm news.
+                        </p>
+                        <form class="flex">
+                            <input type="email" placeholder="Your Email" class="px-4 py-2 rounded-l focus:outline-none text-primary-900">
+                            <button type="submit" class="bg-primary-500 hover:bg-primary-600 px-4 py-2 rounded-r">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="border-t border-primary-700 mt-12 pt-8 text-center text-primary-300 text-sm">
+                    <p>&copy; 2023 Vertigo & Partners. All rights reserved. | <a href="#" class="hover:text-secondary-500">Privacy Policy</a> | <a href="#" class="hover:text-secondary-500">Terms of Use</a></p>
+                    <p class="mt-2">Attorney Advertising. Prior results do not guarantee similar outcomes.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <script>
+        // Toggle sidebar
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+            document.querySelector('.overlay').classList.toggle('open');
+        }
+
+        // Toggle firm name slogan
+        function toggleFirmName() {
+            document.getElementById('firmSlogan').classList.toggle('collapsed');
+        }
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -215,7 +538,14 @@
                 });
             });
         });
+
+        // Close sidebar when clicking a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.sidebar').classList.remove('open');
+                document.querySelector('.overlay').classList.remove('open');
+            });
+        });
     </script>
 </body>
 </html>
-
