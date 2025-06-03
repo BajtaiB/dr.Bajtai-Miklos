@@ -1,117 +1,109 @@
-/* Alapok */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: #333;
-    background: #f9f9f9;
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #FEFAE0;
+  color: #1A1A1A;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+.header {
+  background: #CCD5AE;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Fejléc */
-header {
-/* szín söt */
-    background: #2D3A2E;
-    color: #fff;
-    padding: 20px 0;
+.nav a, .mobile-nav a {
+  margin: 0 1em;
+  text-decoration: none;
+  color: #1A1A1A;
 }
 
-header h1 {
-    margin: 0;
+.menu-toggle {
+  display: none;
+  font-size: 1.5em;
+  background: none;
+  border: none;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 15px;
+.hero {
+  background: #FAEDCD;
+  padding: 3em 1em;
+  text-align: center;
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
+.hero h1 {
+  font-size: 2.5em;
 }
 
-/* Hős szekció */
-#hero {
-/* szín vil*/
-    background: #CDE3C1;
-    text-align: center;
-    padding: 100px 20px;
+.quote {
+  font-style: italic;
+  margin: 1em 0;
 }
 
-#hero h2 {
-    margin-bottom: 10px;
-    font-size: 2.5rem;
+.cta {
+  background: #D4A373;
+  color: white;
+  padding: 0.8em 1.5em;
+  text-decoration: none;
+  border-radius: 8px;
 }
 
-#hero p {
-    margin-bottom: 20px;
+.laws, .contact {
+  padding: 2em 1em;
 }
 
-.btn {
-/* szín söt2 */
-    background: #3F5243;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+.contact form {
+  display: grid;
+  gap: 1em;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-.btn:hover {
-/* szín élénk */
-    background: #5F8D4E;
+.contact input, .contact textarea {
+  padding: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-/* Szolgáltatások */
-.services {
-    list-style: none;
-    padding: 0;
+.contact button {
+  background: #D4A373;
+  color: white;
+  padding: 0.8em;
+  border: none;
+  border-radius: 5px;
 }
 
-.services li {
-    margin: 10px 0;
+.footer {
+  background: #CCD5AE;
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
 }
 
-/* Kapcsolat */
-form {
+.hidden {
+  display: none;
+}
+
+/* Mobilbarát menü */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .mobile-nav {
     display: flex;
     flex-direction: column;
-}
+    background: #E9EDC9;
+    padding: 1em;
+  }
 
-form input, form textarea {
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  .mobile-nav a {
+    padding: 0.5em 0;
+  }
 }
-
-form button {
-    background: #2D3A2E;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* Lábléc */
-footer {
-    background: #2D3A2E;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 40px;
-}
-
 
