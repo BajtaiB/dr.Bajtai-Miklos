@@ -1,3 +1,12 @@
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu"); // Megkeresi a menüt
+  if (menu.style.display === "flex") {
+    menu.style.display = "none"; // Ha már nyitva van, elrejti
+  } else {
+    menu.style.display = "flex"; // Ha nincs nyitva, megjeleníti
+  }
+}
+
 // Scroll animáció ScrollReveal-vel
 ScrollReveal().reveal('header', { delay: 200, origin: 'top', distance: '50px', duration: 800 });
 ScrollReveal().reveal('#hero', { delay: 300, origin: 'bottom', distance: '50px', duration: 800 });
