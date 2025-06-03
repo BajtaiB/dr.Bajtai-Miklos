@@ -1,73 +1,69 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Bajtai Miklós | Büntetőjog</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Büntetőjogi Ügyvéd</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Dr. Bajtai Miklós</h1>
-            <nav>
-                <ul>
-                    <li><a href="#rolam">Rólam</a></li>
-                    <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
-                    <li><a href="#kapcsolat">Kapcsolat</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header class="header">
+    <div class="logo">Ügyvéd & Partners</div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav class="nav" id="desktopNav">
+      <a href="#">Rólunk</a>
+      <a href="#">Szolgáltatások</a>
+      <a href="#torvenyek">Törvények</a>
+      <a href="#kapcsolat">Kapcsolat</a>
+    </nav>
+  </header>
 
-    <section id="hero">
-        <div class="container">
-            <h2>Büntetőjogi védelem szakértőtől</h2>
-            <p>Megbízható képviselet büntetőeljárásokban, a jog minden területén.</p>
-            <a href="#kapcsolat" class="btn">Kapcsolatfelvétel</a>
-        </div>
-    </section>
+  <nav id="mobileMenu" class="mobile-nav hidden">
+    <a href="#">Rólunk</a>
+    <a href="#">Szolgáltatások</a>
+    <a href="#torvenyek">Törvények</a>
+    <a href="#kapcsolat">Kapcsolat</a>
+  </nav>
 
-    <section id="rolam" class="container">
-        <h2>Rólam</h2>
-        <p>Tapasztalt büntetőjogi ügyvédként segítem ügyfeleimet a legnehezebb jogi helyzetekben is.</p>
-    </section>
+  <section class="hero">
+    <h1>Büntetőjogi Ügyvéd Budapest</h1>
+    <p class="quote">„A Becsület mindennél többet ér.”</p>
+    <a href="#kapcsolat" class="cta">Konzultáció kérése</a>
+  </section>
 
-    <section id="szolgaltatasok" class="container">
-        <h2>Szolgáltatások</h2>
-        <ul class="services">
-            <li>Büntetőeljárás védői képviselete</li>
-            <li>Gazdasági bűncselekmények</li>
-            <li>Kábítószerrel kapcsolatos ügyek</li>
-            <li>Közlekedési bűncselekmények</li>
-            <li>Sértetti képviselet</li>
-        </ul>
-    </section>
+  <section id="torvenyek" class="laws">
+    <h2>Gyakori büntetőjogi szabályok</h2>
+    <ul>
+      <li><strong>Btk. 164. §</strong> – Emberölés</li>
+      <li><strong>Btk. 178. §</strong> – Testi sértés</li>
+      <li><strong>Btk. 210. §</strong> – Kiskorú veszélyeztetése</li>
+      <li><strong>Btk. 373. §</strong> – Csalás</li>
+      <li><a href="https://net.jogtar.hu/jogszabaly?docid=A1200100.TV" target="_blank">Teljes Btk. a Jogtáron</a></li>
+    </ul>
+  </section>
 
-    <section id="kapcsolat" class="container">
-        <h2>Kapcsolat</h2>
-        <form action="https://formsubmit.co/drbajtaiiroda@gmail.com" method="POST">
-            <input type="text" name="from_name" placeholder="Név" required>
-            <input type="email" name="from_email" placeholder="Email" required>
-            <input type="tel" name="phone" placeholder="Telefonszám" required>
-            <textarea name="message" id="message" placeholder="Üzenet" required></textarea>
-            <input type="text" name="_honey" style="display:none">
-            <button type="submit">Küldés</button>
+  <section id="kapcsolat" class="contact">
+    <h2>Lépjen kapcsolatba velünk</h2>
+    <form>
+      <input type="text" placeholder="Név" required>
+      <input type="email" placeholder="E-mail" required>
+      <input type="tel" placeholder="Telefonszám">
+      <textarea placeholder="Üzenet"></textarea>
+      <button type="submit">Küldés</button>
+    </form>
+  </section>
 
-            <!-- Rejtett mezők -->
-            <input type="hidden" name="_next" value="https://bajtaib.github.io/dr.Bajtai-Miklos/koszonjuk.html">
-            <input type="hidden" name="_captcha" value="false">
-        </form>
-    </section>
+  <footer class="footer">
+    <p>&copy; 2025 Ügyvéd & Partners | Minden jog fenntartva</p>
+  </footer>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Dr. Bajtai Miklós | Minden jog fenntartva.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
 
