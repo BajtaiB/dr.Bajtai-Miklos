@@ -1,89 +1,60 @@
-body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background-color: #fefae0;
-  color: #2e2e2e;
+/* Betűtípusok */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+/* Oldalsáv (sidebar) animáció */
+.sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sidebar.open {
+    transform: translateX(0);
 }
 
-.site-header {
-  background-color: #ccd5ae;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  position: relative;
+/* Áttetsző háttérréteg (overlay) animáció */
+.overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.4s ease-in-out;
+}
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
 }
 
-.site-title {
-  text-align: center;
-  margin: 0 auto;
+/* Menülink animáció és aláhúzás effekt */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #5b8e50;
+    transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after {
+    width: 100%;
 }
 
-.site-title h1 {
-  margin: 0;
-  font-size: 1.8rem;
-  color: #2e2e2e;
+/* Cég név / szlogen megjelenés animáció */
+.firm-name {
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.collapsed {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
 }
 
-.slogan {
-  margin: 0;
-  font-style: italic;
-  color: #5a5a5a;
+/* Kártya lebegés effekttel */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-  position: absolute;
-  left: 1rem;
-}
-
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: #2e2e2e;
-}
-
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  background-color: #e9edc9;
-  padding: 1rem;
-  position: absolute;
-  top: 60px;
-  left: 1rem;
-  border-radius: 8px;
-}
-
-.mobile-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.mobile-menu li {
-  margin: 0.5rem 0;
-}
-
-.mobile-menu a {
-  text-decoration: none;
-  color: #2e2e2e;
-}
-
-main {
-  padding: 2rem;
-}
-
-h2 {
-  color: #6c7753;
-}
-
-footer {
-  background-color: #ccd5ae;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  color: #2e2e2e;
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
