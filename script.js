@@ -1,9 +1,10 @@
+// Hamburger menü megjelenítése/elrejtése
 function toggleMenu() {
-  const menu = document.getElementById("mobileMenu"); // Megkeresi a menüt
+  const menu = document.getElementById("mobileMenu");
   if (menu.style.display === "flex") {
-    menu.style.display = "none"; // Ha már nyitva van, elrejti
+    menu.style.display = "none";
   } else {
-    menu.style.display = "flex"; // Ha nincs nyitva, megjeleníti
+    menu.style.display = "flex";
   }
 }
 
