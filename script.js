@@ -124,11 +124,10 @@ if (typeof ScrollReveal !== 'undefined') {
 
   sr.reveal('header', { delay: 200, origin: 'top' });
   sr.reveal('#home', { delay: 300 });
-  sr.reveal('#services .text-center, #services .grid > div', { 
+  sr.reveal('#law-sections .text-center, #law-sections .grid > div', { 
     delay: 400, 
     interval: 100 
   });
-  sr.reveal('#criminal-laws > div', { delay: 500, origin: 'left' });
-  sr.reveal('#about', { delay: 600, origin: 'right' });
-  sr.reveal('#contact', { delay: 700 });
+  sr.reveal('#services > div', { delay: 500, origin: 'left' });
+  sr.reveal('#contact', { delay: 600 });
 }
