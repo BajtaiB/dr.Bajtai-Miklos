@@ -1,3 +1,31 @@
+tailwind.config = {
+            theme: {
+                fontFamily: {
+                    sans: ['Montserrat', 'sans-serif'],
+                    serif: ['Cormorant Garamond', 'serif'],
+                },
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f3f7f0',
+                            100: '#e0eadb',
+                            200: '#c5d7be',
+                            300: '#9fc097',
+                            400: '#77a76c',
+                            500: '#5b8e50',  // Main green
+                            600: '#45733b',
+                            700: '#365a2f',
+                            800: '#2d4627',
+                            900: '#233720',
+                        }
+                    },
+                    transitionProperty: {
+                        'size': 'width, height',
+                        'spacing': 'margin, padding',
+                    }
+                }
+            }
+        }
 // Toggle sidebar
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('open');
