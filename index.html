@@ -282,36 +282,49 @@
         <section id="contact" class="py-16 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary-800 mb-4">Contact Us</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-800 mb-4">Kapcsolatfelvétel</h2>
                     <div class="w-24 h-1 bg-secondary-500 mx-auto"></div>
                     <p class="text-primary-700 mt-6 max-w-2xl mx-auto">
-                        Reach out today for a confidential consultation. We're available 24/7 for emergencies.
+                        Vegye fel velünk a kapcsolatot még ma. Vészhelyzet esetén a nap 24 órájában, a hét minden napján elérhetőek vagyunk.
                     </p>
                 </div>
+        <form action="https://formsubmit.co/drbajtaiiroda@gmail.com" method="POST">
+            <input type="text" name="from_name" placeholder="Név" required>
+            <input type="email" name="from_email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Telefonszám" required>
+            <textarea name="message" id="message" placeholder="Üzenet" required></textarea>
+            <input type="text" name="_honey" style="display:none">
+            <button type="submit">Küldés</button>
+
+            <!-- Rejtett mezők -->
+            <input type="hidden" name="_next" value="https://bajtaib.github.io/dr.Bajtai-Miklos/koszonjuk.html">
+            <input type="hidden" name="_captcha" value="false">
+        </form>
+    </section>
+
                 
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="bg-primary-50 p-8 rounded-lg shadow-lg">
                         <h3 class="text-2xl font-bold text-primary-800 mb-6">Get In Touch</h3>
                         <form>
                             <div class="mb-4">
-                                <label for="name" class="block text-primary-700 mb-2">Your Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border border-primary-300 rounded focus:outline-none focus:ring-2 focus:ring-secondary-500">
+                                <input type="text" name="from_name" placeholder="Név" class="w-full px-4 py-2 border border-primary-300 rounded focus:outline-none focus:ring-2 focus:ring-secondary-500" required>
                             </div>
                             <div class="mb-4">
-                                <label for="email" class="block text-primary-700 mb-2">Email Address</label>
+                                <label for="email" class="block text-primary-700 mb-2">cím</label>
                                 <input type="email" id="email" class="w-full px-4 py-2 border border-primary-300 rounded focus:outline-none focus:ring-2 focus:ring-secondary-500">
                             </div>
                             <div class="mb-4">
-                                <label for="phone" class="block text-primary-700 mb-2">Phone Number</label>
+                                <label for="phone" class="block text-primary-700 mb-2">telefonszám</label>
                                 <input type="tel" id="phone" class="w-full px-4 py-2 border border-primary-300 rounded focus:outline-none focus:ring-2 focus:ring-secondary-500">
                             </div>
                             <div class="mb-4">
                                 <label for="case" class="block text-primary-700 mb-2">Nature of Your Case</label>
                                 <select id="case" class="w-full px-4 py-2 border border-primary-300 rounded focus:outline-none focus:ring-2 focus:ring-secondary-500">
-                                    <option>Select One</option>
-                                    <option>DUI/DWI</option>
-                                    <option>Drug Charges</option>
-                                    <option>Theft/Burglary</option>
+                                    <option>a</option>
+                                    <option>b</option>
+                                    <option>c</option>
+                                    <option>d</option>
                                     <option>Assault/Violence</option>
                                     <option>Domestic Violence</option>
                                     <option>White Collar Crime</option>
@@ -330,30 +343,15 @@
                     
                     <div>
                         <div class="bg-primary-700 text-white p-8 rounded-lg shadow-lg h-full">
-                            <h3 class="text-2xl font-bold text-secondary-500 mb-6">Visit Our Office</h3>
+                            <h3 class="text-2xl font-bold text-secondary-500 mb-6">Elérhetőségek</h3>
                             
                             <div class="space-y-6">
-                                <div class="flex items-start">
-                                    <i class="fas fa-map-marker-alt text-secondary-500 mt-1 mr-4"></i>
-                                    <div>
-                                        <h4 class="text-lg font-semibold">Main Office</h4>
-                                        <p class="text-primary-100">123 Justice Avenue<br>New York, NY 10001</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <i class="fas fa-clock text-secondary-500 mt-1 mr-4"></i>
-                                    <div>
-                                        <h4 class="text-lg font-semibold">Hours</h4>
-                                        <p class="text-primary-100">Monday-Friday: 9am-6pm<br>Saturday: By Appointment<br>Emergency: 24/7 Availability</p>
-                                    </div>
-                                </div>
-                                
+                        
                                 <div class="flex items-start">
                                     <i class="fas fa-phone text-secondary-500 mt-1 mr-4"></i>
                                     <div>
-                                        <h4 class="text-lg font-semibold">Phone</h4>
-                                        <p class="text-primary-100">Main: (212) 555-0100<br>Emergency: (212) 555-0199<br>Fax: (212) 555-0101</p>
+                                        <h4 class="text-lg font-semibold">Telefon</h4>
+                                        <p class="text-primary-100">+36 30 971 5847</p>
                                     </div>
                                 </div>
                                 
@@ -361,19 +359,11 @@
                                     <i class="fas fa-envelope text-secondary-500 mt-1 mr-4"></i>
                                     <div>
                                         <h4 class="text-lg font-semibold">Email</h4>
-                                        <p class="text-primary-100">info@vertigolaw.com<br>emergency@vertigolaw.com</p>
+                                        <p class="text-primary-100">drbajtaiiroda@gmail.com</p>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="mt-8">
-                                <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
-                                <div class="flex space-x-4">
-                                    <a href="#" class="text-white hover:text-primary-400 text-xl"><i class="fab fa-facebook-square"></i></a>
-                                    <a href="#" class="text-white hover:text-primary-400 text-xl"><i class="fab fa-twitter-square"></i></a>
-                                    <a href="#" class="text-white hover:text-primary-400 text-xl"><i class="fab fa-linkedin"></i></a>
-                                    <a href="#" class="text-white hover:text-primary-400 text-xl"><i class="fab fa-instagram-square"></i></a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -406,31 +396,17 @@
                     <div>
                         <h4 class="text-lg font-semibold text-white mb-4">Practice Areas</h4>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-primary-200 hover:text-secondary-500">Felony Defense</a></li>
-                            <li><a href="#" class="text-primary-200 hover:text-secondary-500">DUI/DWI</a></li>
-                            <li><a href="#" class="text-primary-200 hover:text-secondary-500">Domestic Violence</a></li>
+                            <li><a href="#" class="text-primary-200 hover:text-secondary-500">1</a></li>
+                            <li><a href="#" class="text-primary-200 hover:text-secondary-500">2</a></li>
+                            <li><a href="#" class="text-primary-200 hover:text-secondary-500">3</a></li>
                             <li><a href="#" class="text-primary-200 hover:text-secondary-500">Drug Crimes</a></li>
                             <li><a href="#" class="text-primary-200 hover:text-secondary-500">White Collar Crimes</a></li>
                         </ul>
                     </div>
-                    
-                    <div>
-                        <h4 class="text-lg font-semibold text-white mb-4">Newsletter</h4>
-                        <p class="text-primary-200 mb-4">
-                            Subscribe to our newsletter for legal updates and firm news.
-                        </p>
-                        <form class="flex">
-                            <input type="email" placeholder="Your Email" class="px-4 py-2 rounded-l focus:outline-none text-primary-900">
-                            <button type="submit" class="bg-primary-500 hover:bg-primary-600 px-4 py-2 rounded-r">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </form>
-                    </div>
                 </div>
                 
                 <div class="border-t border-primary-700 mt-12 pt-8 text-center text-primary-300 text-sm">
-                    <p>&copy; 2023 Vertigo & Partners. All rights reserved. | <a href="#" class="hover:text-secondary-500">Privacy Policy</a> | <a href="#" class="hover:text-secondary-500">Terms of Use</a></p>
-                    <p class="mt-2">Attorney Advertising. Prior results do not guarantee similar outcomes.</p>
+                    <p>&copy; 2025 Dr. Bajtai Miklós | Minden jog fenntartva.</p>
                 </div>
             </div>
         </footer>
