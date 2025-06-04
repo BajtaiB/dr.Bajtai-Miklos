@@ -8,19 +8,19 @@ tailwind.config = {
     extend: {
       colors: {
         primary: {
-          50: '#f3f7f0',
-          100: '#e0eadb',
-          200: '#c5d7be',
-          300: '#9fc097',
-          400: '#77a76c',
-          500: '#5b8e50',  // Main green
-          600: '#45733b',
-          700: '#365a2f',
-          800: '#2d4627',
-          900: '#233720',
+          50: '#f4f8f2',
+          100: '#e1ebdc',
+          200: '#c6d9bd',
+          300: '#9cbf93',
+          400: '#6ea066',
+          500: '#4d8345',
+          600: '#3a6b34',
+          700: '#2e5529',
+          800: '#234120',
+          900: '#1a3118',
         },
         secondary: {
-          500: '#5b8e50', // Matching the primary green
+          500: '#3a6b34',
         }
       },
       transitionProperty: {
@@ -43,14 +43,6 @@ function toggleSidebar() {
   
   // Toggle body overflow when sidebar is open
   document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : 'auto';
-}
-
-// Toggle firm name slogan (if still needed)
-function toggleFirmName() {
-  const firmSlogan = document.getElementById('firmSlogan');
-  if (firmSlogan) {
-    firmSlogan.classList.toggle('collapsed');
-  }
 }
 
 // Smooth scrolling for anchor links
@@ -89,49 +81,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-// Initialize ScrollReveal if available
-if (typeof ScrollReveal !== 'undefined') {
-  const sr = ScrollReveal({
-    origin: 'bottom',
-    distance: '30px',
-    duration: 800,
-    reset: true
-  });
-
-  sr.reveal('header', {
-    delay: 200,
-    origin: 'top'
-  });
-
-  sr.reveal('#home', {
-    delay: 300,
-    origin: 'bottom'
-  });
-
-  sr.reveal('#services', {
-    delay: 400,
-    origin: 'left'
-  });
-
-  sr.reveal('#criminal-laws', {
-    delay: 500,
-    origin: 'right'
-  });
-
-  sr.reveal('#contact', {
-    delay: 600,
-    origin: 'bottom'
-  });
-}
-
-// Hamburger menu toggle (if needed)
-function toggleMenu() {
-  const menu = document.getElementById("mobileMenu");
-  if (menu) {
-    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-  }
-}
-
 // Close sidebar when clicking outside
 document.addEventListener('click', (e) => {
   const sidebar = document.querySelector('.sidebar');
@@ -163,3 +112,23 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
+
+// Initialize ScrollReveal if available
+if (typeof ScrollReveal !== 'undefined') {
+  const sr = ScrollReveal({
+    origin: 'bottom',
+    distance: '30px',
+    duration: 800,
+    reset: true
+  });
+
+  sr.reveal('header', { delay: 200, origin: 'top' });
+  sr.reveal('#home', { delay: 300 });
+  sr.reveal('#services .text-center, #services .grid > div', { 
+    delay: 400, 
+    interval: 100 
+  });
+  sr.reveal('#criminal-laws > div', { delay: 500, origin: 'left' });
+  sr.reveal('#about', { delay: 600, origin: 'right' });
+  sr.reveal('#contact', { delay: 700 });
+}
