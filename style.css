@@ -1,60 +1,50 @@
-/* Betűtípusok */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
-
-/* Oldalsáv (sidebar) animáció */
-.sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.sidebar.open {
-    transform: translateX(0);
-}
-
-/* Áttetsző háttérréteg (overlay) animáció */
-.overlay {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.4s ease-in-out;
-}
-.overlay.open {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Menülink animáció és aláhúzás effekt */
-.nav-link {
-    position: relative;
-    transition: color 0.3s ease;
-}
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -2px;
-    left: 0;
-    background-color: #5b8e50;
-    transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.nav-link:hover::after {
-    width: 100%;
-}
-
-/* Cég név / szlogen megjelenés animáció */
-.firm-name {
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.collapsed {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-}
-
-/* Kártya lebegés effekttel */
-.card-hover {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card-hover:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
+        
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .sidebar.open {
+            transform: translateX(0);
+        }
+        .overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.4s ease-in-out;
+        }
+        .overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #5b8e50;
+            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .firm-name {
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .collapsed {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
