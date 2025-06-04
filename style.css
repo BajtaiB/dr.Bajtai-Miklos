@@ -1,4 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+/* Add these styles to your existing CSS */
+
+/* Sidebar Container */
+#sidebarContainer {
+  display: none;
+}
+
+#sidebarContainer:not(.hidden) {
+  display: block;
+}
+
+/* Overlay */
+.overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.4s ease-in-out;
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Sidebar */
+.sidebar {
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
         
 .sidebar {
     transform: translateX(-100%);
